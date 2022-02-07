@@ -1,5 +1,7 @@
 package to.coin.assetpipeline.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.time.Instant;
 
@@ -13,6 +15,7 @@ public class NewsArticle {
     private String url;
 
     @Column(name = "published_at")
+    @JsonProperty("published_at")
     private Instant publishedAt;
 
     public Long getId() {

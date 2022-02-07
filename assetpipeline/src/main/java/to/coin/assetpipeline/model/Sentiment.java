@@ -29,6 +29,7 @@ public class Sentiment extends Score {
 
     @OneToOne()
     @JoinColumn(name = "entity_id", nullable = true)
+    @JsonProperty("news_article")
     private NewsArticle newsArticle;
 
     public Double getSentimentScore() {

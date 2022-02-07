@@ -35,7 +35,6 @@ public class AssetService {
     }
 
     public ResponseEntity<List<Sentiment>> getSentimentsByAssetId(Long id) {
-
         if (!assetRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
