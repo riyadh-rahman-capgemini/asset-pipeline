@@ -1,4 +1,4 @@
-package to.coin.assetpipeline;
+package to.coin.assetpipeline.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,23 +11,22 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api")
 public class AssetController {
 
     @Autowired
     private AssetService assetService;
 
-    @GetMapping("/assets")
+    @GetMapping("/api/assets")
     public ResponseEntity<List<Asset>> getAll() {
         return assetService.getAll();
     }
 
-    @GetMapping("/assets/{id}")
+    @GetMapping("/api/assets/{id}")
     public ResponseEntity<Asset> getOne(@PathVariable Long id) {
         return assetService.getOne(id);
     }
 
-    @GetMapping("/assets/{id}/sentiments")
+    @GetMapping("/api/assets/{id}/sentiments")
     public ResponseEntity<List<Sentiment>> getSentimentsForOne(@PathVariable Long id) {
         return assetService.getSentimentsByAssetId(id);
     }
