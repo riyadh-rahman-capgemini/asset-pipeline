@@ -38,12 +38,16 @@ public class UserService {
         }
 
         response.put("user", user);
+
         return ResponseEntity.ok(response);
     }
 
     public ResponseEntity<Map<String, Object>> save(Map<String, Object> userMap) {
         User user = new User();
 
+        user.setFirstName((String) userMap.getOrDefault("first_name", null));
+        user.setLastName((String) userMap.getOrDefault("last_name", null));
+        user.setEmail((String) userMap.getOrDefault("email", null));
         user.setUsername((String) userMap.getOrDefault("username", null));
 
         String password = (String) userMap.getOrDefault("password", null);

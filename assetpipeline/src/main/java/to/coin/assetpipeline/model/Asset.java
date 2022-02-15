@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "assets")
-public class Asset {
+public class Asset implements Serializable {
 
     @Id
     private Long id;

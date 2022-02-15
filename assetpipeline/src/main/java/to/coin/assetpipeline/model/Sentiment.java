@@ -1,13 +1,17 @@
 package to.coin.assetpipeline.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Instant;
+
+import org.hibernate.annotations.Cache;
 
 @Entity
 @Table(name = "sentiments")
-public class Sentiment extends Score {
+public class Sentiment extends Score implements Serializable {
 
     @Column(name = "asset_id")
     private Long assetId;

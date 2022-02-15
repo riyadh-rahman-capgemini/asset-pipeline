@@ -3,11 +3,12 @@ package to.coin.assetpipeline.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Instant;
 
 @Entity
 @Table(name = "news_articles")
-public class NewsArticle {
+public class NewsArticle implements Serializable {
 
     @Id
     private Long id;
