@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import to.coin.assetpipeline.model.Filter;
 import to.coin.assetpipeline.model.User;
+import to.coin.assetpipeline.repository.FilterRepository;
 import to.coin.assetpipeline.repository.UserRepository;
 
 import javax.validation.ConstraintViolation;
@@ -14,10 +16,7 @@ import javax.validation.ValidatorFactory;
 import java.net.URI;
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -68,4 +67,5 @@ public class UserService {
 
         return ResponseEntity.created(URI.create("")).build();
     }
+
 }
