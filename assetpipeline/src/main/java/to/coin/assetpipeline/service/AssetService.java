@@ -9,6 +9,9 @@ import to.coin.assetpipeline.repository.ScoreRepository;
 import to.coin.assetpipeline.model.Asset;
 import to.coin.assetpipeline.model.Sentiment;
 
+import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,13 +38,13 @@ public class AssetService {
         return ResponseEntity.ok(asset.get());
     }
 
-    public ResponseEntity<List<Sentiment>> getSentimentsByAssetId(Long id) {
+    public ResponseEntity<List<Sentiment>> getTodaySentimentsByAssetId(Long id) {
         if (!assetRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
 
         System.out.println("");
 
-        return ResponseEntity.ok(scoreRepository.findAllSentimentsByAssetId(id));
+        return ResponseEntity.ok(scoreRepository.findAllSentimentsByAssetIdAndDate(id, LocalDate.now()));
     }
 }

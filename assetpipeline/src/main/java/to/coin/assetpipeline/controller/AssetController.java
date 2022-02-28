@@ -28,7 +28,7 @@ public class AssetController {
 
     @GetMapping("/api/assets/{id}/sentiments")
     public ResponseEntity<List<Sentiment>> getSentimentsForOne(@PathVariable Long id) {
-        return assetService.getSentimentsByAssetId(id);
+        return assetService.getTodaySentimentsByAssetId(id);
     }
 
 }
