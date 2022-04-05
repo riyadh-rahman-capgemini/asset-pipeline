@@ -14,9 +14,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/api/users/{username}")
-    public ResponseEntity<Map<String, Object>> getByUsernameAndPassword(@PathVariable String username, @RequestBody Map<String, String> auth) {
-        return userService.get(username, auth);
+    @PostMapping("/api/users/authenticate")
+    public ResponseEntity<Map<String, Object>> authenticate(@RequestBody Map<String, String> auth) {
+        return userService.authenticate(auth);
     }
 
     @PostMapping("/api/users")

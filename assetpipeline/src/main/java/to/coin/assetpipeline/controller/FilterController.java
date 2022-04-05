@@ -16,8 +16,8 @@ public class FilterController {
     @Autowired
     private FilterService filterService;
 
-    @GetMapping("/api/filters/{userId}")
-    public ResponseEntity<List<Filter>> findAllByUserId(Long userId) {
+    @GetMapping("/api/users/{userId}/filters")
+    public ResponseEntity<List<Filter>> findAllByUserId(@PathVariable Long userId) {
         return filterService.findAllByUserId(userId);
     }
 

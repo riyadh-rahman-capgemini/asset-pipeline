@@ -27,8 +27,8 @@ public class UserService {
 //    @Autowired
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public ResponseEntity<Map<String, Object>> get(String username, Map<String, String> auth) {
-        User user = userRepository.findByUsername(username);
+    public ResponseEntity<Map<String, Object>> authenticate(Map<String, String> auth) {
+        User user = userRepository.findByUsername(auth.getOrDefault("username", ""));
         Map<String, Object> response = new HashMap<>();
 
         if (user == null || !passwordEncoder.matches(auth.getOrDefault("password", ""), user.getPassword())) {
